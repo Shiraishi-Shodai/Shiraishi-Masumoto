@@ -3,7 +3,7 @@ services:
 
   db:
     image: postgres:13.1
-    container_name: db
+    container_name: postgres
     volumes:
       - ./db/dbdata:/var/lib/postgresql/data
     expose:
@@ -16,7 +16,7 @@ services:
   django:
     build: ./django
     image: django
-    container_name: ap
+    container_name: django
     expose:
       - '8080'
     volumes:
@@ -27,7 +27,7 @@ services:
 
   web:
     image: nginx:1.18.0
-    container_name: web
+    container_name: nginx
     volumes:
       - ./web/conf:/etc/nginx/conf.d
       - ./web/uwsgi_params:/etc/nginx/uwsgi_params
