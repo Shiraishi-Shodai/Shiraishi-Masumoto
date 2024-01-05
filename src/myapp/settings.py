@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'snsapp.apps.SnsappConfig',
-    # 'allauth',                # 認証モジュール
-    # 'allauth.account',        #      〃
-    # 'allauth.socialaccount',  #      〃
+    'allauth',                # 認証モジュール
+    'allauth.account',        #      〃
+    'allauth.socialaccount',  #      〃
 ]
 
 MIDDLEWARE = [
@@ -61,7 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates', 'allauth'),
+            # os.path.join(BASE_DIR, 'templates', 'allauth'),
             os.path.join(BASE_DIR, 'templates'),
         ],
         'APP_DIRS': True,
@@ -148,5 +148,5 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 SITE_ID = 1 
 
-LOGIN_REDIRECT_URL = 'home'         #リダイレクト先をhomeページに設定。詳細後述          
-ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'

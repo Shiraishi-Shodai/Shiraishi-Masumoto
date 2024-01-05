@@ -10,3 +10,7 @@ exit
 
 # 変更を反映される方法
 docker-compose restart
+
+# Django管理サイトLogin
+ユーザー名: root
+Password: Temporary_password

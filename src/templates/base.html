@@ -1,21 +1,28 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang = 'ja'>
+<html lang="ja" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel = 'stylesheet' href = '{% static 'css/style.css' %}'>
-    <title>{% block title %}ブログ{% endblock %}</title>
+   <meta charset="utf-8">
+   <title>{% block title %}Animit{% endblock %}</title>
+   <link rel="stylesheet" href='{% static "admin/css/destyle.css" %}'/>
+   <link rel="stylesheet" href='{% static "admin/css/style.css" %}'/>
 </head>
 <body>
-    #header.htmlの内容を読み込みます。
-    {% include 'header.html' %}
-    
-    <main>
-        {% block content %}{% endblock %}
-    </main>
-    #footerは今回用意していませんが、会社情報や免責事項などがよく盛り込まれています。
-    {% include 'footer.html' %}
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <header>
+       <!-- Header content -->
+       <div class="header-space">
+            <h1>動物専用SNS Animitへようこそ</h1>
+       </div>
+   </header>
+
+   <main>
+       {% block content %}
+       <!-- Default content -->
+       {% endblock %}
+   </main>
+
+   <footer>
+       <!-- Footer content -->
+   </footer>
 </body>
 </html>
