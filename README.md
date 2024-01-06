@@ -2,7 +2,7 @@
 ```docker-compose up -d```
 
 # ターミナルに接続
-```docker-compose exec django /bin/bash```
+```docker-compose exec django /bin/bash```  
 →root@(コンテナ名):/code# 
 
 # 変更を反映される方法
