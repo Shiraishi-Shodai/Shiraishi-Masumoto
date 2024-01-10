@@ -9,5 +9,5 @@
 ```docker-compose restart```
 
 # Django管理サイトLogin
-ユーザー名: root
+ユーザー名: root  
 Password: Temporary_password
