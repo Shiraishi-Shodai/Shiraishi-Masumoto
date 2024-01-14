@@ -12,6 +12,10 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm
 
+# メール送信
+from django.core.mail import send_mail
+from django.conf import settings
+
 def Login(request):
    form = AuthenticationForm()
    if request.method == 'POST':
@@ -140,4 +144,16 @@ class AccountRegistration(TemplateView):
 #             print(self.params["account_form"].errors)
 
 #         return render(request,"register.html",context=self.params)
+
+# メール送信
+# @login_required
+def my_mail(request):
+    send_mail(
+        "テストメール",
+        "Hello",
+        'siranosuke1227@gmail.com',  # 送信元のメールアドレス
+        ['CA01973085@st.kawahara.ac.jp'],               # 受信者リスト
+        fail_silently=False,
+    )
     
+    return render(request, 'mail.html')

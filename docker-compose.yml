@@ -4,6 +4,7 @@ services:
   db:
     image: postgres:13.1
     container_name: postgres
+    # データの保存場所をローカルのdb/dbdataに保存
     volumes:
       - ./db/dbdata:/var/lib/postgresql/data
     expose:
