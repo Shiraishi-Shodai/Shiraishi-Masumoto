@@ -150,3 +150,12 @@ SITE_ID = 1
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+
+# メール送信用設定
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+# smtpサーバへの認証に必要な情報    
+EMAIL_HOST_USER = 'siranosuke1227@gmail.com'
+EMAIL_HOST_PASSWORD = 'vnfd vglm txyz moya '
