@@ -25,11 +25,12 @@
        <td>{{ form.password.label_tag }}</td>
        <td>{{ form.password }}</td>
      </tr>
-   </table>
-   <input type="submit" value="ログイン">
+   </table> 
+   <input type="submit" value="ログイン" class = "btn-submit">
+   <br>
    <input type="hidden" name="next" value="{{ next }}">
  </form>
 
- <p><a href="{% url 'register' %}">新規アカウントを作成</a></p>
+ <p><a href="{% url 'register' %}" class="btn--orange btn--radius">新規アカウントを作成</a></p>
 
 {% endblock %}

@@ -143,6 +143,7 @@ address {
  */
 
 a {
+  text-align:center;
   background-color: transparent;
   text-decoration: none;
   color: inherit;
@@ -428,4 +429,40 @@ th {
 th {
   text-align: left;
   font-weight: bold;
+}
+
+.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+  padding: 7px 25px;
+  border-radius: 7px;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a.btn--radius {
+  
+   border-radius: 100vh;
+}
+
+.btn-submit{
+  display: block;
+  padding: 7px 25px;
+  border-radius: 7px;
+  border: none;
+  border-bottom: 4px solid #1d7dcc;
+  background-color: #2196f3;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  appearance: none;
+}
+.btn-submit:active {
+  margin-top: 3px;
+  background-color: #309bf2;
+  border-bottom: 2px solid #006366;
 }
