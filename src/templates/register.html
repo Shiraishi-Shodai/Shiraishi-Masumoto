@@ -1,10 +1,10 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %} 
 {% block content %}
- <h2>登録</h2>
- <form method="post">
-   {% csrf_token %}
-   <!-- フォームフィールドをここに追加 -->
-   <input type="submit" value="登録">
- </form>
+<form method="post" action="{% url 'register' %}">
+ {% csrf_token %}
+ <p><label for="id_email">メールアドレス:</label> {{ custom_user_form.email }}</p>
+ <p><label for="id_password1">パスワード:</label> {{ custom_user_form.password1 }}</p>
+ <p><label for="id_password2">パスワード再入力:</label> {{ custom_user_form.password2 }}</p>
+ <input type="submit" value="登録" />
+</form>
 {% endblock %}

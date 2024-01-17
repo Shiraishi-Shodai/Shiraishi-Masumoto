@@ -12,11 +12,6 @@ from django import forms
 from django.contrib.auth.models import User
 
 class AccountForm(forms.ModelForm):
-   class Meta:
-       model = User
-       fields = ['username', 'email', 'password']
-
-class AddAccountForm(forms.ModelForm):
-   class Meta:
-       model = User
-       fields = ['first_name', 'last_name']
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
