@@ -71,6 +71,7 @@ class CustomUserCreationForm(forms.ModelForm):
             user.save()
         return user
 
+#新規登録
 class AccountRegistration(TemplateView):
     def __init__(self):
         self.params = {
@@ -90,19 +91,29 @@ class AccountRegistration(TemplateView):
         if self.params["custom_user_form"].is_valid():
             user = self.params["custom_user_form"].save()
             self.params["AccountCreate"] = True
+            
+            code = my_mail()
+            code = 10
+            return render(request, 'mail.html', code=code)
         else:
             print(self.params["custom_user_form"].errors)
 
         return render(request,"register.html",context=self.params)
    
+
 # メール送信
+# @login_required
 def my_mail(request):
+    code = 10
     send_mail(
         "テストメール",
-        "Hello",
+        "link: https://www.booking.com/index.ja.html?aid=2399528&label=1705288972400800000&mfadid=adm",
         'siranosuke1227@gmail.com',  # 送信元のメールアドレス
-        ['CA01973085@st.kawahara.ac.jp'],               # 受信者リスト
+        ['siranosuke1227@gmail.com'],               # 受信者リスト
         fail_silently=False,
     )
     
-    return render(request, 'mail.html')
+    return code
+
+
+    
