@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView #テンプレートタグ
-from .forms import AccountForm, AddAccountForm #ユーザーアカウントフォーム
+from .forms import AccountForm#, AddAccountForm #ユーザーアカウントフォーム
 
 # ログイン・ログアウト処理に利用
 from django.contrib.auth import authenticate, login, logout
@@ -93,8 +93,8 @@ class AccountRegistration(TemplateView):
             self.params["AccountCreate"] = True
             
             code = my_mail()
-            code = 10
-            return render(request, 'mail.html', code=code)
+            context = {"code":code}
+            return render(request, 'mail.html', context)
         else:
             print(self.params["custom_user_form"].errors)
 
@@ -102,8 +102,7 @@ class AccountRegistration(TemplateView):
    
 
 # メール送信
-# @login_required
-def my_mail(request):
+def my_mail():
     code = 10
     send_mail(
         "テストメール",
