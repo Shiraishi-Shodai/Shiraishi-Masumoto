@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>メールを送信しました</h1>
+    <h1>認証コードを入力しください</h1>
+
+    <form action="post">
+        <input type="text" name="code" id="code">
+
+        <input type="submit" value="code">
+    </form>
 </body>
 </html>

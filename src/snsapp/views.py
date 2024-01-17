@@ -46,6 +46,7 @@ def home(request):
 
 from django.contrib.auth.models import User
 
+#新規登録
 class CustomUserCreationForm(forms.ModelForm):
    email = forms.EmailField(label='Email address')
    password1 = forms.CharField(widget=forms.PasswordInput)
@@ -69,7 +70,6 @@ class CustomUserCreationForm(forms.ModelForm):
            user.save()
        return user
 
-#新規登録
 class AccountRegistration(TemplateView):
    def __init__(self):
        self.params = {
@@ -88,72 +88,27 @@ class AccountRegistration(TemplateView):
        if self.params["custom_user_form"].is_valid():
            user = self.params["custom_user_form"].save()
            self.params["AccountCreate"] = True
+           
+           code = my_mail()
+           code = 10
+           return render(request, 'mail.html', code=code)
        else:
            print(self.params["custom_user_form"].errors)
-
+       
        return render(request,"register.html",context=self.params)
-   
-#    class  AccountRegistration(TemplateView):
-
-#     def __init__(self):
-#         self.params = {
-#         "AccountCreate":False,
-#         "account_form": AccountForm(),
-#         "add_account_form":AddAccountForm(),
-#         }
-
-#     #Get処理
-#     def get(self,request):
-#         self.params["account_form"] = AccountForm()
-#         self.params["add_account_form"] = AddAccountForm()
-#         self.params["AccountCreate"] = False
-#         return render(request,"register.html",context=self.params)
-
-#     #Post処理
-#     def post(self,request):
-#         self.params["account_form"] = AccountForm(data=request.POST)
-#         self.params["add_account_form"] = AddAccountForm(data=request.POST)
-
-#         #フォーム入力の有効検証
-#         if self.params["account_form"].is_valid() and self.params["add_account_form"].is_valid():
-#             # アカウント情報をDB保存
-#             account = self.params["account_form"].save()
-#             # パスワードをハッシュ化
-#             account.set_password(account.password)
-#             # ハッシュ化パスワード更新
-#             account.save()
-
-#             # 下記追加情報
-#             # 下記操作のため、コミットなし
-#             add_account = self.params["add_account_form"].save(commit=False)
-#             # AccountForm & AddAccountForm 1vs1 紐付け
-#             add_account.user = account
-
-#             # 画像アップロード有無検証
-#             if 'account_image' in request.FILES:
-#                 add_account.account_image = request.FILES['account_image']
-
-#             # モデル保存
-#             add_account.save()
-
-#             # アカウント作成情報更新
-#             self.params["AccountCreate"] = True
-
-#         else:
-#             # フォームが有効でない場合
-#             print(self.params["account_form"].errors)
-
-#         return render(request,"register.html",context=self.params)
 
 # メール送信
-# @login_required
-def my_mail(request):
+def my_mail():
+    code = 10
     send_mail(
         "テストメール",
-        "Hello",
+        "link: https://www.booking.com/index.ja.html?aid=2399528&label=1705288972400800000&mfadid=adm",
         'siranosuke1227@gmail.com',  # 送信元のメールアドレス
-        ['CA01973085@st.kawahara.ac.jp'],               # 受信者リスト
+        ['siranosuke1227@gmail.com'],               # 受信者リスト
         fail_silently=False,
     )
     
-    return render(request, 'mail.html')
+    return code
+
+
+    
